@@ -1,0 +1,16 @@
+{
+    "song_name": "music",
+    "scheduler_info": {
+        "song_name": "music",
+        "t": "2024-12-10 16:21:22",
+        "d": 63.696,
+        "c": 13.804592,
+        "st": "Play",
+        "isPlaying": true
+    },
+    "video_info": {
+        "key": "1:music:vi",
+        "filename": "saved_data/music_video.bin",
+        "size": 4834348
+    }
+}

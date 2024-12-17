@@ -1,0 +1,12 @@
+{
+    "song_name": "default",
+    "scheduler_info": {
+        "song_name": "default",
+        "t": "0000-0005",
+        "d": 0,
+        "c": 0,
+        "st": "Stop",
+        "isPlaying": false
+    },
+    "video_info": {}
+}

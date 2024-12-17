@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synchronized Video Player</title>
+    <script src="https://cdn.socket.io/4.5.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1></h1>
+    <video id="videoPlayer" width="800">
+        <source id="videoSource" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button id="syncbutton">sync</button>
+    <script>
+        const socket = io();
+        const videoPlayer = document.getElementById("videoPlayer");
+        const videoSource = document.getElementById("videoSource");
+        let cee;
+
+
+        syncbutton.addEventListener("click", () => {
+            socket.emit("update_state", {
+                c: cee,
+            });
+
+        });
+
+        // Sync playback when joining
+        socket.emit("sync_request");
+
+        socket.on("test", (state) => {
+            const { song_name, c, st } = state;
+            videoPlayer.currentTime = c;         
+        });
+
+        // Receive and apply sync state
+        socket.on("sync_state", (state) => {
+            const { song_name, c, st } = state;
+
+            //not so sure about this
+            const newVideoSrc = `/video/${song_name}`;
+            if (videoSource.src !== `${window.location.origin}${newVideoSrc}`) {
+                videoSource.src = newVideoSrc;
+                videoPlayer.load();
+            }
+
+            /* 
+            //Sync the video timestamp
+            if (Math.abs(videoPlayer.currentTime - c) > 0.5 && st == "Stop") {
+                videoPlayer.currentTime = c;
+            }
+                //doesnt work due to bug
+*/
+
+            console.log(st)
+            console.log(videoPlayer.paused)
+            // Sync playback status
+            if (st == "Stop" && !videoPlayer.paused) {
+                videoPlayer.pause();
+                
+            } else if (st == "Play" && videoPlayer.paused) {
+                videoPlayer.play();
+            }
+            cee = c;
+        });
+    </script>
+</body>
+</html>

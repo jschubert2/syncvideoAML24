@@ -1,0 +1,16 @@
+{
+    "song_name": "diemydarling",
+    "scheduler_info": {
+        "song_name": "diemydarling",
+        "t": "2024-12-17 14:39:47",
+        "d": 0,
+        "c": 0,
+        "st": "Play",
+        "isPlaying": true
+    },
+    "video_info": {
+        "key": "1:diemydarling:vi",
+        "filename": "saved_data/diemydarling_video.bin",
+        "size": 15715341
+    }
+}

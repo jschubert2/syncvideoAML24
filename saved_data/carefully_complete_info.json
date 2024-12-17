@@ -1,0 +1,16 @@
+{
+    "song_name": "carefully",
+    "scheduler_info": {
+        "song_name": "carefully",
+        "t": "0000-0005",
+        "d": 63.696,
+        "c": 18.837474,
+        "st": "Stop",
+        "isPlaying": false
+    },
+    "video_info": {
+        "key": "1:carefully:vi",
+        "filename": "saved_data/carefully_video.bin",
+        "size": 4157105
+    }
+}
